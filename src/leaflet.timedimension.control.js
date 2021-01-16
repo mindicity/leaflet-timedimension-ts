@@ -403,8 +403,8 @@ export const TimeDimensionControl = Control.extend({
     var sliderContainer, sliderbar, max, knob, limits;
     sliderContainer = DomUtil.create("div", className, container);
     /*DomEvent
-            .addListener(sliderContainer, 'click', DomEvent.stopPropagation)
-            .addListener(sliderContainer, 'click', DomEvent.preventDefault);*/
+        .addListener(sliderContainer, 'click', DomEvent.stopPropagation)
+        .addListener(sliderContainer, 'click', DomEvent.preventDefault);*/
 
     sliderbar = DomUtil.create("div", "slider", sliderContainer);
     max = this._timeDimension.getAvailableTimes().length - 1;
@@ -597,9 +597,9 @@ export const TimeDimensionControl = Control.extend({
   _createSliderSpeed: function (className, container) {
     var sliderContainer = DomUtil.create("div", className, container);
     /* L.DomEvent
-            .addListener(sliderContainer, 'click', L.DomEvent.stopPropagation)
-            .addListener(sliderContainer, 'click', L.DomEvent.preventDefault);
-    */
+        .addListener(sliderContainer, 'click', L.DomEvent.stopPropagation)
+        .addListener(sliderContainer, 'click', L.DomEvent.preventDefault);
+*/
     var speedLabel = DomUtil.create("span", "speed", sliderContainer);
     var sliderbar = DomUtil.create("div", "slider", sliderContainer);
     var initialSpeed =
@@ -749,13 +749,9 @@ export const TimeDimensionControl = Control.extend({
 
 Map.addInitHook(function () {
   if (this.options.timeDimensionControl) {
-    this.timeDimensionControl = control.timeDimension(
+    this.timeDimensionControl = new TimeDimensionControl(
       this.options.timeDimensionControlOptions || {}
     );
     this.addControl(this.timeDimensionControl);
   }
 });
-
-control.timeDimension = function (options) {
-  return new Control.TimeDimension(options);
-};
