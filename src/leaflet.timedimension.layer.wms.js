@@ -1,12 +1,7 @@
-import { Layer, Evented, Map, Util, TileLayer } from "leaflet";
-import {
-  explodeTimeRange,
-  parseTimesExpression,
-  parseTimeInterval,
-  intersect_arrays,
-  union_arrays,
-} from "./utils";
+import { Layer, Util, TileLayer } from "leaflet";
+import { parseTimesExpression } from "./leaflet.timedimension.util";
 import { TimeDimensionLayer } from "./leaflet.timedimension.layer";
+import * as control from './leaflet.timedimension.control'
 
 /*
  * L.TimeDimension.Layer.WMS: wms Layer associated to a TimeDimension
