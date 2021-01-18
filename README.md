@@ -1,6 +1,6 @@
 # Leaflet TimeDimension
 
-Forked from https://raw.githubusercontent.com/socib/Leaflet.TimeDimension with the intention exporting everything with
+Forked from https://raw.githubusercontent.com/socib/Leaflet.TimeDimension with the intention of exporting everything with
 ECMAScript 6 modules and adding type declarations
 
 Add time dimension capabilities on a [Leaflet](http://leafletjs.com/) map.
