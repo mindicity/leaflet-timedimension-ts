@@ -4,7 +4,7 @@ declare module "leaflet-timedimension-scoped" {
     constructor(options: { dog: boolean });
   }
 
-  interface TimeDimensionOptions {
+  export interface TimeDimensionOptions {
     loadingTimeout?: number;
     currentTime?: string;
     // time period with ISO 8601
@@ -17,7 +17,7 @@ declare module "leaflet-timedimension-scoped" {
     constructor(options: TimeDimensionOptions)
   }
 
-  interface TimeDimensionWMS {
+  export interface TimeDimensionWMS {
     _update: () => void;
     onRemove: (map: Map) => void;
     setLoaded: (loaded: boolean) => void;
@@ -27,7 +27,7 @@ declare module "leaflet-timedimension-scoped" {
     getURL: () => string;
   }
 
-  interface TimeDimensionWMSLayerOptions {
+  export interface TimeDimensionWMSLayerOptions {
     getCapabilitiesParams?: any;
     getCapabilitiesUrl?: string;
     getCapabilitiesLayerName?: string;
