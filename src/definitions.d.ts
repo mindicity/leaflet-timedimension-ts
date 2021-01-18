@@ -40,6 +40,6 @@ declare module "leaflet-timedimension-scoped" {
   }
 
   export class TimeDimensionWMSLayer {
-    constructor(wmsLayer: TimeDimensionWMS);
+    constructor(wmsLayer: TimeDimensionWMS, options: TimeDimensionWMSLayerOptions);
   }
 }
