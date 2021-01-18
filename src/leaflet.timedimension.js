@@ -13,7 +13,7 @@ import {
  * the default timedimension component for any layer added to the map.
  */
 export const TimeDimension = Layer.extend({
-  includes: Evented,
+  includes: Evented.prototype,
 
   initialize: function (options) {
     Util.setOptions(this, options);

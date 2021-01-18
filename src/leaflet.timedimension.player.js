@@ -1,7 +1,7 @@
 import { Util, Class, Evented } from "leaflet";
 
 export const Player = Class.extend({
-  includes: Evented,
+  includes: Evented.prototype,
   initialize: function (options, timeDimension) {
     Util.setOptions(this, options);
     this._timeDimension = timeDimension;

@@ -1,4 +1,5 @@
 import { LatLngBounds, Layer, Evented, Util } from "leaflet";
+import * as timeDimensionModule from './leaflet.timedimension';
 
 /*
  * L.TimeDimension.Layer:  an abstract Layer that can be managed/synchronized with a TimeDimension.
@@ -8,7 +9,7 @@ import { LatLngBounds, Layer, Evented, Util } from "leaflet";
  */
 
 export const TimeDimensionLayer = Layer.extend({
-  includes: Evented,
+  includes: Evented.prototype,
   options: {
     opacity: 1,
     zIndex: 1,

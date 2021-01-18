@@ -9,6 +9,7 @@ import {
 } from "leaflet";
 
 import { Player } from './leaflet.timedimension.player';
+import * as timeDimensionModule from './leaflet.timedimension';
 /*
  * Leaflet control to manage a timeDimension
  */
