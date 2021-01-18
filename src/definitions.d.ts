@@ -28,6 +28,7 @@ export interface TimeDimensionOptions {
 
 export class TimeDimension {
   constructor(options: TimeDimensionOptions);
+  setAvailableTimes: (times: string, mode: 'replace'| 'intersect' | 'extremes'| 'union' ) => void
 }
 
 export interface TimeDimensionWMS {

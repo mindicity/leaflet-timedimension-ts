@@ -6,6 +6,7 @@ import {
   intersect_arrays,
   union_arrays,
 } from "./leaflet.timedimension.util";
+import { TimeDimension } from './definitions';
 
 /*
  * L.TimeDimension: TimeDimension object manages the time component of a layer.
@@ -313,7 +314,7 @@ export const TimeDimension = Layer.extend({
       lowerLimitTime = this.getLowerLimit(),
       upperLimitTime = this.getUpperLimit();
 
-    if (mode == "extremes") {
+    if (mode === "extremes") {
       var period = this.options.period || "P1D";
       this._availableTimes = explodeTimeRange(
         new Date(times[0]),
@@ -338,10 +339,10 @@ export const TimeDimension = Layer.extend({
       }
     }
 
-    if (lowerLimitTime) {
+    if (lowerLimitTime && mode !== "replace") {
       this.setLowerLimit(lowerLimitTime); //restore lower limit
     }
-    if (upperLimitTime) {
+    if (upperLimitTime && mode !== "replace") {
       this.setUpperLimit(upperLimitTime); //restore upper limit
     }
     this.setCurrentTime(currentTime);
