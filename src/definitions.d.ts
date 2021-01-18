@@ -39,6 +39,11 @@ declare module "leaflet-timedimension-scoped" {
     timeDimension: TimeDimension;
   }
 
+  export interface MapOptions {
+    timeDimension: boolean,
+    timeDimensionControl: boolean,
+  }
+
   export class TimeDimensionWMSLayer {
     constructor(wmsLayer: TimeDimensionWMS, options: TimeDimensionWMSLayerOptions);
   }
