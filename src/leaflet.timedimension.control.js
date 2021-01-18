@@ -1,7 +1,6 @@
 import {
   Draggable,
   Map,
-  control,
   Control,
   Util,
   DomUtil,

@@ -5,7 +5,7 @@ import {
   parseTimeInterval,
   intersect_arrays,
   union_arrays,
-} from "./utils";
+} from "./leaflet.timedimension.util";
 
 /*
  * L.TimeDimension: TimeDimension object manages the time component of a layer.

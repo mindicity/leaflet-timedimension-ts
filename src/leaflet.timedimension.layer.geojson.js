@@ -1,7 +1,9 @@
 import { GeoJSON } from "leaflet";
-import { subtractTimeDuration } from "./utils";
+import {
+  subtractTimeDuration,
+  sort_and_deduplicate,
+} from "./leaflet.timedimension.util";
 import { TimeDimensionLayer } from "./leaflet.timedimension.layer";
-import { sort_and_deduplicate } from "../lib/utils";
 
 export const TimeDimensionGeoJsonLayer = TimeDimensionLayer.extend({
   initialize: function (layer, options) {

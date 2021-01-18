@@ -1,15 +1,4 @@
-import {
-  Draggable,
-  Map,
-  control,
-  Control,
-  Util,
-  DomUtil,
-  DomEvent,
-  point,
-  Class,
-  Evented,
-} from "leaflet";
+import { Util, Class, Evented } from "leaflet";
 
 export const Player = Class.extend({
   includes: Evented,
