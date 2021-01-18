@@ -7,6 +7,8 @@ import {
   DomEvent,
   point,
 } from "leaflet";
+
+import { Player } from './leaflet.timedimension.player';
 /*
  * Leaflet control to manage a timeDimension
  */
@@ -255,7 +257,7 @@ export const TimeDimensionControl = Control.extend({
       if (this.options.player) {
         this._player = this.options.player;
       } else {
-        this._player = new TimeDimension.Player(
+        this._player = new Player(
           this.options.playerOptions,
           this._timeDimension
         );

@@ -4,6 +4,19 @@ export class TimeDimensionControl {
   constructor(options: { dog: boolean });
 }
 
+export interface PlayerOptions {
+  buffer: number;
+  minBufferReady: number;
+  loop: boolean;
+  transitionTime: number;
+}
+
+export class Player {
+  constructor(options: PlayerOptions, timeDimension: TimeDimension)
+}
+
+
+
 export interface TimeDimensionOptions {
   loadingTimeout?: number;
   currentTime?: string;
@@ -11,6 +24,8 @@ export interface TimeDimensionOptions {
   times?: string;
   lowerLimitTime?: Date;
   upperLimitTime?: Date;
+  player?: Player;
+  playerOptions: PlayerOptions;
 }
 
 export class TimeDimension {
