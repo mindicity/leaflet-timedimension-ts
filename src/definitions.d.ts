@@ -4,13 +4,17 @@ declare module "leaflet-timedimension-scoped" {
     constructor(options: { dog: boolean });
   }
 
-  export class TimeDimension {
+  interface TimeDimensionOptions {
     loadingTimeout?: number;
     currentTime?: string;
     // time period with ISO 8601
     times?: string;
     lowerLimitTime?: Date;
     upperLimitTime?: Date;
+  }
+
+  export class TimeDimension {
+    constructor(options: TimeDimensionOptions)
   }
 
   interface TimeDimensionWMS {
