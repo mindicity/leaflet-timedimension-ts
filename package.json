@@ -1,6 +1,6 @@
 {
   "name": "leaflet-timedimension-scoped",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Add time dimension capabilities on a Leaflet map",
   "keywords": [
     "gis",
@@ -34,7 +34,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/socib/Leaflet.TimeDimension.git"
+    "url": "https://github.com/CFA-Meteorologia/Leaflet.TimeDimension"
   },
   "dependencies": {
     "iso8601-js-period": "^0.2.1",
