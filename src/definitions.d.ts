@@ -50,7 +50,7 @@ export interface TimeDimensionWMSLayerOptions {
   cacheForward?: number;
   wmsVersion?: string;
   requestTimeFromCapabilities?: boolean;
-  timeDimension: TimeDimension;
+  timeDimension?: TimeDimension;
 }
 
 export class TimeDimensionWMSLayer {
