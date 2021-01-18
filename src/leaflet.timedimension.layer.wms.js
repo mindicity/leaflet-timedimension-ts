@@ -1,4 +1,4 @@
-import { Layer, Util, TileLayer } from "leaflet";
+import { Util, TileLayer } from "leaflet";
 import { parseTimesExpression } from "./leaflet.timedimension.util";
 import { TimeDimensionLayer } from "./leaflet.timedimension.layer";
 import * as control from "./leaflet.timedimension.control";
@@ -442,48 +442,6 @@ export const TimeDimensionWMSLayer = TimeDimensionLayer.extend({
       );
     }
     return this._availableTimes[index];
-  },
-});
-
-export const NonTiledLayer = Layer.extend({
-  _visible: true,
-  _loaded: false,
-
-  _originalUpdate: L.NonTiledLayer.prototype._update,
-  _originalOnRemove: L.NonTiledLayer.prototype.onRemove,
-
-  _update: function () {
-    if (!this._visible && this._loaded) {
-      return;
-    }
-    this._originalUpdate();
-  },
-
-  onRemove: function (map) {
-    this._loaded = false;
-    this._originalOnRemove(map);
-  },
-
-  setLoaded: function (loaded) {
-    this._loaded = loaded;
-  },
-
-  isLoaded: function () {
-    return this._loaded;
-  },
-
-  hide: function () {
-    this._visible = false;
-    this._div.style.display = "none";
-  },
-
-  show: function () {
-    this._visible = true;
-    this._div.style.display = "block";
-  },
-
-  getURL: function () {
-    return this._wmsUrl;
   },
 });
 
