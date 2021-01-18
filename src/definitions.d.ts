@@ -15,8 +15,6 @@ export class Player {
   constructor(options: PlayerOptions, timeDimension: TimeDimension)
 }
 
-
-
 export interface TimeDimensionOptions {
   loadingTimeout?: number;
   currentTime?: string;
@@ -25,7 +23,7 @@ export interface TimeDimensionOptions {
   lowerLimitTime?: Date;
   upperLimitTime?: Date;
   player?: Player;
-  playerOptions: PlayerOptions;
+  playerOptions?: PlayerOptions;
 }
 
 export class TimeDimension {
