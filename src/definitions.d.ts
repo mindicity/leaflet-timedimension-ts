@@ -65,4 +65,8 @@ declare module "leaflet" {
     timeDimension?: boolean;
     timeDimensionControl?: boolean;
   }
+
+  export class Map {
+    timeDimension: TimeDimension
+  }
 }
