@@ -154,6 +154,7 @@ export const TimeDimensionControl = Control.extend({
       transitionTime: 1000,
     },
     timeZones: ["UTC", "Local"],
+    onlyUTC: false,
   },
 
   initialize: function (options) {
@@ -707,6 +708,9 @@ export const TimeDimensionControl = Control.extend({
   },
 
   _switchTimeZone: function () {
+    if(this.options.onlyUTC) {
+      return
+    }
     if (this._getCurrentTimeZone().toLowerCase() == "utc") {
       DomUtil.removeClass(this._displayDate, "utc");
     }

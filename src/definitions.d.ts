@@ -1,4 +1,4 @@
-import { Map } from "leaflet";
+import {Map, ControlPosition, ControlOptions} from "leaflet";
 
 export class TimeDimensionControl {
   constructor(options: { dog: boolean });
@@ -60,10 +60,33 @@ export class TimeDimensionWMSLayer {
   );
 }
 
+export interface TimeDimensionControlOptions extends ControlOptions {
+  onlyUTC?: boolean,
+  minSpeed?: number,
+  maxSpeed?: number,
+  speedStep?: number,
+  timeSteps?: number,
+  timeSlider?: boolean,
+  timeSliderDragUpdate?: boolean,
+  limitSliders?: boolean,
+  limitMinimumRange?: number,
+  speedSlider?: boolean,
+  autoPlay?: boolean,
+  backwardButton?: boolean,
+  forwardButton?: boolean,
+  playButton?: boolean,
+  playReverseButton?: boolean,
+  loopButton?: boolean,
+  displayDate?: boolean,
+  title?: string,
+  styleNS?: string,
+}
+
 declare module "leaflet" {
   export interface MapOptions {
     timeDimension?: boolean;
     timeDimensionControl?: boolean;
+    timeDimensionControlOptions?: TimeDimensionControlOptions;
   }
 
   export class Map {
