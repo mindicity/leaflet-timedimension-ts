@@ -243,7 +243,7 @@ export const TimeDimensionWMSLayer = TimeDimensionLayer.extend({
   },
 
   _createLayerForTime: function (time) {
-    var wmsParams = this._baseLayer.options;
+    const wmsParams = { ...this._baseLayer.options };
     wmsParams.time = new Date(time).toISOString();
     return new this._baseLayer.constructor(this._baseLayer.getURL(), wmsParams);
   },
