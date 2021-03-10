@@ -84,7 +84,7 @@ export const TimeDimensionWMSLayer = TimeDimensionLayer.extend({
   onAdd: function (map) {
     TimeDimensionLayer.prototype.onAdd.call(this, map);
 
-    if(this._timeDimension && this._timeDimension.getAvailableTimes().length === 0) {
+    if(this._timeDimension && this._timeDimension.getAvailableTimes().length > 0) {
       this._updateAvailableTimesFromTimeDimension();
     }
     else if (this._availableTimes.length === 0) {
