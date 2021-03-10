@@ -84,12 +84,12 @@ export interface TimeDimensionControlOptions extends ControlOptions {
 
 declare module "leaflet" {
   export interface MapOptions {
-    timeDimension?: boolean;
+    timeDimension?: boolean | TimeDimension;
     timeDimensionControl?: boolean;
     timeDimensionControlOptions?: TimeDimensionControlOptions;
   }
 
   export class Map {
-    timeDimension: TimeDimension
+    public timeDimension: TimeDimension
   }
 }
