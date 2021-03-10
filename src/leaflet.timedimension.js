@@ -393,8 +393,11 @@ export const TimeDimension = Layer.extend({
 
 Map.addInitHook(function () {
   if (this.options.timeDimension) {
-    this.timeDimension = new TimeDimension(
-      this.options.timeDimensionOptions || {}
-    );
+    if(this.options.timeDimension instanceof TimeDimension)
+      this.timeDimension = this.options.timeDimension
+    else
+      this.timeDimension = new TimeDimension(
+        this.options.timeDimensionOptions || {}
+      );
   }
 });
