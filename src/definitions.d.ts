@@ -1,4 +1,4 @@
-import {Map, ControlPosition, ControlOptions} from "leaflet";
+import { Map, ControlOptions, Evented } from "leaflet";
 
 export class TimeDimensionControl {
   constructor(options: { dog: boolean });
@@ -26,9 +26,11 @@ export interface TimeDimensionOptions {
   playerOptions?: PlayerOptions;
 }
 
-export class TimeDimension {
+export class TimeDimension extends Evented {
   constructor(options: TimeDimensionOptions);
   setAvailableTimes: (times: string, mode: 'replace'| 'intersect' | 'extremes'| 'union' ) => void
+  setCurrentTime:(time: number) => void
+  prepareNextTimes: (numSteps: number, howMany: number, loop: boolean) => void
 }
 
 export interface TimeDimensionWMS {
