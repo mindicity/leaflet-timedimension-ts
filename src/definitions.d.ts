@@ -86,6 +86,8 @@ export interface TimeDimensionControlOptions extends ControlOptions {
   playerOptions?: PlayerOptions;
 }
 
+export function parseTimesExpression(times: string)
+
 declare module "leaflet" {
   export interface MapOptions {
     timeDimension?: boolean | TimeDimension;
@@ -98,4 +100,3 @@ declare module "leaflet" {
   }
 }
 
-export function parseTimesExpression(times: string)
