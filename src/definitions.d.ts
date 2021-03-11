@@ -5,10 +5,10 @@ export class TimeDimensionControl {
 }
 
 export interface PlayerOptions {
-  buffer: number;
-  minBufferReady: number;
-  loop: boolean;
-  transitionTime: number;
+  buffer?: number;
+  minBufferReady?: number;
+  loop?: boolean;
+  transitionTime?: number;
 }
 
 export class Player {
