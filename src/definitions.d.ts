@@ -97,3 +97,5 @@ declare module "leaflet" {
     public timeDimension: TimeDimension
   }
 }
+
+export function parseTimesExpression(times: string)
