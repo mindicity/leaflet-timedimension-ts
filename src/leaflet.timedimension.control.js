@@ -424,6 +424,8 @@ export const TimeDimensionControl = Control.extend({
     knob.on(
       "dragend",
       function (e) {
+        if(knob.options.rangeMax === 0)
+          return
         var value = e.target.getValue();
         this._sliderTimeValueChanged(value);
         this._slidingTimeSlider = false;
@@ -433,6 +435,8 @@ export const TimeDimensionControl = Control.extend({
     knob.on(
       "drag",
       function (e) {
+        if(knob.options.rangeMax === 0)
+          return
         this._slidingTimeSlider = true;
         var time = this._timeDimension.getAvailableTimes()[e.target.getValue()];
         if (time) {
@@ -483,6 +487,8 @@ export const TimeDimensionControl = Control.extend({
           }
         } else {
           knob.setPosition(x);
+          if(knob.options.rangeMax === 0)
+            return
           this._sliderTimeValueChanged(knob.getValue());
         }
       },
