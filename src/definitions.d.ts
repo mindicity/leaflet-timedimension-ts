@@ -30,6 +30,7 @@ export class TimeDimension extends Evented {
   constructor(options: TimeDimensionOptions);
   setAvailableTimes: (times: string, mode: 'replace'| 'intersect' | 'extremes'| 'union' ) => void
   setCurrentTime:(time: number) => void
+  getCurrentTime:() => number | null
   prepareNextTimes: (numSteps: number, howMany: number, loop: boolean) => void
 }
 
