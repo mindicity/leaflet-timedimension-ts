@@ -83,6 +83,7 @@ export interface TimeDimensionControlOptions extends ControlOptions {
   displayDate?: boolean,
   title?: string,
   styleNS?: string,
+  playerOptions?: PlayerOptions;
 }
 
 declare module "leaflet" {
