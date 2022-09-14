@@ -63,8 +63,37 @@ export class TimeDimensionWMSLayer {
   );
 }
 
+export interface TimeDimensionImage {
+  _update: () => void;
+  onRemove: (map: Map) => void;
+  setLoaded: (loaded: boolean) => void;
+  isLoaded: () => boolean;
+  hide: () => void;
+  show: () => void;
+  getURL: () => string;
+}
+
+export interface TimeDimensionImageLayerOptions {
+  getCapabilitiesParams?: any;
+  getCapabilitiesUrl?: string;
+  getCapabilitiesLayerName?: string;
+  cache?: number;
+  cacheBackward?: number;
+  cacheForward?: number;
+  requestTimeFromCapabilities?: boolean;
+  timeDimension?: TimeDimension;
+}
+
+export class TimeDimensionImageLayer {
+  constructor(
+    imageLayer: TimeDimensionImage,
+    options: TimeDimensionImageLayerOptions
+  );
+}
+
 export interface TimeDimensionControlOptions extends ControlOptions {
   onlyUTC?: boolean,
+  timeZones: string[],
   minSpeed?: number,
   maxSpeed?: number,
   speedStep?: number,
