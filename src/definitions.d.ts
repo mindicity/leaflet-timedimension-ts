@@ -93,7 +93,7 @@ export class TimeDimensionImageLayer {
 
 export interface TimeDimensionControlOptions extends ControlOptions {
   onlyUTC?: boolean,
-  timeZones: string[],
+  timeZones?: string[],
   minSpeed?: number,
   maxSpeed?: number,
   speedStep?: number,
