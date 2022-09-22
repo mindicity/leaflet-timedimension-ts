@@ -746,7 +746,7 @@ export const TimeDimensionControl = Control.extend({
       return date.toLocaleString();
     }
     if (timeZone.toLowerCase() == "localday") {
-      return `${date.toDateString()} ${date.toLocaleTimeString()}`;
+      return `${date.toDateString()} ${date.toLocaleTimeString(undefined, {hour: 'numeric', minute: 'numeric'})}`;
     }
     return date.toLocaleString([], {
       timeZone: timeZone,
