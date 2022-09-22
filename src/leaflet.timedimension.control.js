@@ -153,7 +153,7 @@ export const TimeDimensionControl = Control.extend({
     playerOptions: {
       transitionTime: 1000,
     },
-    timeZones: ["UTC", "Local"],
+    timeZones: ["UTC", "Local", "LocalDay"],
     onlyUTC: false,
   },
 
@@ -728,6 +728,8 @@ export const TimeDimensionControl = Control.extend({
       this._displayDate.title = "UTC Time";
     } else if (timeZone.toLowerCase() == "local") {
       this._displayDate.title = "Local Time";
+    } else if (timeZone.toLowerCase() == "localday") {
+      this._displayDate.title = "Local Time";
     } else {
       this._displayDate.title = timeZone;
     }
@@ -742,6 +744,9 @@ export const TimeDimensionControl = Control.extend({
     }
     if (timeZone.toLowerCase() == "local") {
       return date.toLocaleString();
+    }
+    if (timeZone.toLowerCase() == "localday") {
+      return `${date.toDateString()} ${date.toLocaleTimeString()}`;
     }
     return date.toLocaleString([], {
       timeZone: timeZone,
