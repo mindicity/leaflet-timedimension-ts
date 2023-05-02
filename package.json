@@ -1,7 +1,7 @@
 {
   "name": "leaflet-timedimension-ts",
-  "version": "0.0.4",
-  "description": "Add time dimension capabilities on a Leaflet map",
+  "version": "0.1.0",
+  "description": "Add time dimension capabilities on a Leaflet map with TypeScript",
   "keywords": [
     "gis",
     "map",

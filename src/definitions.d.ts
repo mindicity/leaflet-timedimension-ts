@@ -110,6 +110,7 @@ export interface TimeDimensionControlOptions extends ControlOptions {
   playReverseButton?: boolean,
   loopButton?: boolean,
   displayDate?: boolean,
+  dateFontWeight?: number,
   title?: string,
   styleNS?: string,
   playerOptions?: PlayerOptions;

@@ -140,6 +140,7 @@ export const TimeDimensionControl = Control.extend({
     playReverseButton: false,
     loopButton: false,
     displayDate: true,
+    dateFontWeight: null,
     timeSlider: true,
     timeSliderDragUpdate: false,
     limitSliders: false,
@@ -389,6 +390,7 @@ export const TimeDimensionControl = Control.extend({
     );
     link.href = "#";
     link.title = title;
+    if (this.options.displayDate && this.options.dateFontWeight) { link.style.fontWeight = this.options.dateFontWeight; }
 
     DomEvent.addListener(link, "click", DomEvent.stopPropagation)
       .addListener(link, "click", DomEvent.preventDefault)
@@ -608,7 +610,7 @@ export const TimeDimensionControl = Control.extend({
     /* L.DomEvent
         .addListener(sliderContainer, 'click', L.DomEvent.stopPropagation)
         .addListener(sliderContainer, 'click', L.DomEvent.preventDefault);
-*/
+    */
     var speedLabel = DomUtil.create("span", "speed", sliderContainer);
     var sliderbar = DomUtil.create("div", "slider", sliderContainer);
     var initialSpeed =

@@ -72,6 +72,40 @@ tdWmsLayer.addTo(map);
 
 For more control over each object creation, you can create timeDimension objects manually, see [Example 9](examples/js/example9.js#L11)
 
+Reac-leaflet + TypeScript usage:
+
+```TSX
+...
+import "leaflet-timedimension-ts/src/leaflet.timedimension.control.css";
+import { TimeDimension, TimeDimensionControlOptions, TimeDimensionOptions } from "leaflet-timedimension-ts";
+...
+timeDimensionOptions: TimeDimensionOptions = {
+    currentTime: '',
+    times: "",
+};
+timeDimension = new TimeDimension(this.timeDimensionOptions);
+timeDimensionControlOptions: TimeDimensionControlOptions = {
+    position: 'topright',
+    dateFontWeight: 800,
+    speedStep: 0.5,
+    minSpeed: 0.5,
+    maxSpeed: 10,
+    onlyUTC: false,
+    timeZones: ['LocalDay', 'local', 'UTC'],
+    autoPlay: true,
+    playerOptions: {loop: true}
+};
+...
+<MapContainer
+    center={[39.828175, -98.5795]}
+    timeDimension={this.timeDimension}
+    timeDimensionControl
+    timeDimensionControlOptions={this.timeDimensionControlOptions}
+    >
+...
+```
+
+
 ## API
 
 ### L.Map
@@ -263,6 +297,7 @@ Option                 | Type                       | Default                   
 `playReverseButton`    | `Boolean`                  | `false`                         |
 `loopButton`           | `Boolean`                  | `false`                         | Show loop button to enable/disable loop animation
 `displayDate`          | `Boolean`                  | `true`                          | Show display date control
+`dateFontWeight`       | `Number`                   | `null`                          | Set inline style font-weight for date control
 `timeSlider`           | `Boolean`                  | `true`                          | Show time slider control
 `timeSliderDragUpdate` | `Boolean`                  | `false`                         | Update the map when dragging
 `limitSliders`         | `Boolean`                  | `false`                         | Show limit knobs on the time slider to restrict animation range
@@ -275,7 +310,7 @@ Option                 | Type                       | Default                   
 `autoPlay`             | `Boolean`                  | `false`                         | Animate the map automatically
 `player`               | `<L.TimeDimension.Player>` | `undefined`                     | Attach an existing player to that control
 `playerOptions`        | `Object`                   | `{transitionTime: 1000}`        | [Options](#timeDimensionPlayerOptions) for the TimeDimension Player object attached.(Cannot be used with `player` option)
-`timeZones`            | `Array of strings`         | `["UTC", "Local"]`              | Clicking on the date cycles between these
+`timeZones`            | `Array of strings`         | `["UTC", "Local", "LocalDay"]`  | Clicking on the date cycles between these
 
 
 ### L.TimeDimension.Player
