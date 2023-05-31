@@ -390,7 +390,12 @@ export const TimeDimensionControl = Control.extend({
     );
     link.href = "#";
     link.title = title;
-    if (this.options.displayDate && this.options.dateFontWeight) { link.style.fontWeight = this.options.dateFontWeight; }
+    if (this.options.displayDate && this.options.dateFontWeight) {
+      link.style.fontWeight = this.options.dateFontWeight;
+    }
+    if (title == "Date") {
+      DomUtil.addClass(link, this.options.timeZones[0].toLowerCase());
+    }
 
     DomEvent.addListener(link, "click", DomEvent.stopPropagation)
       .addListener(link, "click", DomEvent.preventDefault)
@@ -722,8 +727,10 @@ export const TimeDimensionControl = Control.extend({
     if (this._getCurrentTimeZone().toLowerCase() == "utc") {
       DomUtil.removeClass(this._displayDate, "utc");
     }
-    this._timeZoneIndex =
-      (this._timeZoneIndex + 1) % this.options.timeZones.length;
+    if (this._getCurrentTimeZone().toLowerCase() == "localday") {
+      DomUtil.removeClass(this._displayDate, "localday");
+    }
+    this._timeZoneIndex = (this._timeZoneIndex + 1) % this.options.timeZones.length;
     var timeZone = this._getCurrentTimeZone();
     if (timeZone.toLowerCase() == "utc") {
       DomUtil.addClass(this._displayDate, "utc");
