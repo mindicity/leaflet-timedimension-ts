@@ -57,7 +57,7 @@
 
 .leaflet-bar-timecontrol a.timecontrol-date.localday,
 .leaflet-bar-timecontrol a.timecontrol-date.localday:hover {
-  min-width: 185px;
+  min-width: 186px;
 }
 
 .leaflet-bar-timecontrol a.timecontrol-date.loading,
