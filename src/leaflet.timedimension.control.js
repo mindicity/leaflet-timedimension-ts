@@ -731,6 +731,7 @@ export const TimeDimensionControl = Control.extend({
     } else if (timeZone.toLowerCase() == "local") {
       this._displayDate.title = "Local Time";
     } else if (timeZone.toLowerCase() == "localday") {
+      DomUtil.addClass(this._displayDate, "localday");
       this._displayDate.title = "Local Time";
     } else {
       this._displayDate.title = timeZone;
