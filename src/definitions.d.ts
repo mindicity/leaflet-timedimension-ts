@@ -11,7 +11,7 @@ export interface PlayerOptions {
   transitionTime?: number;
 }
 
-export class Player {
+export class Player extends Evented {
   constructor(options: PlayerOptions, timeDimension: TimeDimension);
   start: (numSteps: number) => void;
   stop: () => void;
