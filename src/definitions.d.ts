@@ -12,7 +12,9 @@ export interface PlayerOptions {
 }
 
 export class Player {
-  constructor(options: PlayerOptions, timeDimension: TimeDimension)
+  constructor(options: PlayerOptions, timeDimension: TimeDimension);
+  start: (numSteps: number) => void;
+  stop: () => void;
 }
 
 export interface TimeDimensionOptions {
@@ -28,10 +30,10 @@ export interface TimeDimensionOptions {
 
 export class TimeDimension extends Evented {
   constructor(options: TimeDimensionOptions);
-  setAvailableTimes: (times: string, mode: 'replace'| 'intersect' | 'extremes'| 'union' ) => void
-  setCurrentTime:(time: number) => void
-  getCurrentTime:() => number | null
-  prepareNextTimes: (numSteps: number, howMany: number, loop: boolean) => void
+  setAvailableTimes: (times: string, mode: 'replace'| 'intersect' | 'extremes'| 'union' ) => void;
+  setCurrentTime:(time: number) => void;
+  getCurrentTime:() => number | null;
+  prepareNextTimes: (numSteps: number, howMany: number, loop: boolean) => void;
 }
 
 export interface TimeDimensionWMS {
