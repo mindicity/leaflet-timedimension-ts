@@ -128,7 +128,8 @@ declare module "leaflet" {
   }
 
   export class Map {
-    public timeDimension: TimeDimension
+    public timeDimension: TimeDimension;
+    public TimeDimensionPlayer: Player;
   }
 }
 
