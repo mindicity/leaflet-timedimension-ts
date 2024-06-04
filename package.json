@@ -1,6 +1,6 @@
 {
-  "name": "leaflet-timedimension-ts",
-  "version": "0.1.6",
+  "name": "mindicity-leaflet-timedimension-ts",
+  "version": "0.1.7",
   "description": "Add time dimension capabilities on a Leaflet map with TypeScript",
   "keywords": [
     "gis",
@@ -15,6 +15,9 @@
   },
   "bugs": {
     "url": "https://github.com/Ulashyn/Leaflet.TimeDimension-TS/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "license": "MIT",
   "author": {
@@ -35,11 +38,15 @@
     {
       "name": "Oleksandr Ulashyn",
       "email": "ulashyn.o@gmail.com"
+    },
+    {
+      "name": "Alessio Massetti",
+      "email": "a.massetti@mindicity.com"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ulashyn/Leaflet.TimeDimension-TS"
+    "url": "https://github.com/mindicity/leaflet-timedimension-ts"
   },
   "dependencies": {
     "iso8601-js-period": "^0.2.1",
@@ -53,5 +60,7 @@
   },
   "main": "src/index.js",
   "types": "src/definitions.d.ts",
-  "files": ["src/**/*"]
+  "files": [
+    "src/**/*"
+  ]
 }

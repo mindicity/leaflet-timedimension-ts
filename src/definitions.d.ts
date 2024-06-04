@@ -1,6 +1,6 @@
-import { Map, ControlOptions, Evented } from "leaflet";
+import { Map, Control, ControlOptions, Evented } from "leaflet";
 
-export class TimeDimensionControl {
+export class TimeDimensionControl extends Control {
   constructor(options: { dog: boolean });
 }
 
