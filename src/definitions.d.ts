@@ -115,6 +115,7 @@ export interface TimeDimensionControlOptions extends ControlOptions {
   dateFontWeight?: number,
   title?: string,
   styleNS?: string,
+  player?: Player,
   playerOptions?: PlayerOptions;
 }
 
