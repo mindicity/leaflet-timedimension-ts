@@ -69,6 +69,7 @@ export class TimeDimensionLayer extends Layer {
 export class TimeDimension extends Evented {
     constructor(options: TimeDimensionOptions);
 
+    getAvailableTimes: () => number[];
     setAvailableTimes: (times: number[], mode: 'replace' | 'intersect' | 'extremes' | 'union') => void;
     setCurrentTime: (time: number) => void;
     getCurrentTime: () => number | null;
