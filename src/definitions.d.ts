@@ -1,4 +1,4 @@
-import {Map, Control, ControlOptions, Evented} from "leaflet";
+import {Control, ControlOptions, Evented, LayerOptions, Layer, LatLngBounds} from "leaflet";
 
 export class TimeDimensionControl extends Control {
     constructor(options: TimeDimensionControlOptions);
@@ -29,18 +29,62 @@ export interface TimeDimensionOptions {
     playerOptions?: PlayerOptions;
 }
 
+// Define additional options for the TimeDimensionLayer
+export interface TimeDimensionLayerOptions extends LayerOptions {
+    opacity?: number;
+    zIndex?: number;
+    timeDimension?: any;
+}
+
+// Define the TimeDimensionLayer class
+export class TimeDimensionLayer extends Layer {
+    options: TimeDimensionLayerOptions;
+    private _baseLayer: Layer;
+    private _currentLayer: Layer | null;
+    private _timeDimension: any;
+
+    constructor(layer: Layer, options?: TimeDimensionLayerOptions);
+
+    eachLayer(method: (layer: Layer) => void, context?: any): this;
+
+    setZIndex(zIndex: number): this;
+
+    setOpacity(opacity: number): this;
+
+    bringToBack(): this;
+
+    bringToFront(): this;
+
+    protected _onNewTimeLoading(ev: { time: number }): void;
+
+    isReady(time: number): boolean;
+
+    _update(): void;
+
+    getBaseLayer(): Layer;
+
+    getBounds(): LatLngBounds;
+}
+
 export class TimeDimension extends Evented {
     constructor(options: TimeDimensionOptions);
 
-    setAvailableTimes: (times: string, mode: 'replace' | 'intersect' | 'extremes' | 'union') => void;
+    setAvailableTimes: (times: number[], mode: 'replace' | 'intersect' | 'extremes' | 'union') => void;
     setCurrentTime: (time: number) => void;
     getCurrentTime: () => number | null;
+
+    nextTime(numSteps: number, loop: boolean): void;
+
+    previousTime(numSteps: number, loop: boolean): void;
+
     prepareNextTimes: (numSteps: number, howMany: number, loop: boolean) => void;
+
+    registerSyncedLayer(layer: TimeDimensionLayer): void;
+
+    unregisterSyncedLayer(layer: TimeDimensionLayer): void;
 }
 
-export interface TimeDimensionWMS {
-    _update: () => void;
-    onRemove: (map: Map) => void;
+export interface TimeDimensionWMS extends TimeDimensionLayer {
     setLoaded: (loaded: boolean) => void;
     isLoaded: () => boolean;
     hide: () => void;
@@ -48,7 +92,7 @@ export interface TimeDimensionWMS {
     getURL: () => string;
 }
 
-export interface TimeDimensionWMSLayerOptions {
+export interface TimeDimensionWMSLayerOptions extends TimeDimensionLayerOptions {
     getCapabilitiesParams?: any;
     getCapabilitiesUrl?: string;
     getCapabilitiesLayerName?: string;
@@ -67,9 +111,7 @@ export class TimeDimensionWMSLayer {
     );
 }
 
-export interface TimeDimensionImage {
-    _update: () => void;
-    onRemove: (map: Map) => void;
+export interface TimeDimensionImage extends TimeDimensionLayer {
     setLoaded: (loaded: boolean) => void;
     isLoaded: () => boolean;
     hide: () => void;
@@ -77,7 +119,7 @@ export interface TimeDimensionImage {
     getURL: () => string;
 }
 
-export interface TimeDimensionImageLayerOptions {
+export interface TimeDimensionImageLayerOptions extends TimeDimensionLayerOptions {
     getCapabilitiesParams?: any;
     getCapabilitiesUrl?: string;
     getCapabilitiesLayerName?: string;
