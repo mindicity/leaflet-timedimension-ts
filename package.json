@@ -1,6 +1,6 @@
 {
   "name": "mindicity-leaflet-timedimension-ts",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Add time dimension capabilities on a Leaflet map with TypeScript",
   "keywords": [
     "gis",
